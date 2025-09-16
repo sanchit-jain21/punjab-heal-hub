@@ -2,41 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Telemedicine Design System for Rural Healthcare
+   Optimized for accessibility, low-bandwidth, and multilingual support
+   All colors MUST be HSL for proper theming
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background Colors */
+    --background: 210 16% 98%;
+    --foreground: 215 25% 15%;
 
+    /* Card & Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
+    /* Popover Colors */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Medical Primary - Professional Teal */
+    --primary: 186 64% 41%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 186 64% 85%;
+    --primary-dark: 186 64% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Health Secondary - Wellness Green */
+    --secondary: 142 69% 58%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 142 69% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted Colors for Subtle Elements */
+    --muted: 210 16% 93%;
+    --muted-foreground: 215 15% 48%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Warm Orange for CTAs */
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status Colors */
+    --success: 142 69% 58%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 58%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Interactive Elements */
+    --border: 215 15% 88%;
+    --input: 215 15% 95%;
+    --ring: 186 64% 41%;
 
-    --radius: 0.5rem;
+    /* Medical Gradients */
+    --gradient-medical: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-healing: linear-gradient(180deg, hsl(var(--secondary-light)), hsl(var(--secondary)));
+    --gradient-emergency: linear-gradient(135deg, hsl(var(--destructive)), hsl(var(--warning)));
+
+    /* Shadows for Depth */
+    --shadow-medical: 0 4px 20px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 2px 12px hsl(215 25% 15% / 0.08);
+    --shadow-elevated: 0 8px 32px hsl(215 25% 15% / 0.12);
+
+    /* Animation Timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Typography Scale */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+
+    /* Medical Spacing */
+    --spacing-medical: 1.5rem;
+    --spacing-compact: 0.75rem;
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +100,51 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Mode - Medical Night Theme */
+    --background: 215 25% 8%;
+    --foreground: 210 16% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Card & Surface Colors */
+    --card: 215 25% 12%;
+    --card-foreground: 210 16% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Popover Colors */
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 16% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Medical Primary - Softer Teal for Dark */
+    --primary: 186 64% 55%;
+    --primary-foreground: 215 25% 8%;
+    --primary-light: 186 64% 75%;
+    --primary-dark: 186 64% 35%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Health Secondary - Adjusted Green */
+    --secondary: 142 69% 48%;
+    --secondary-foreground: 215 25% 8%;
+    --secondary-light: 142 69% 65%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Muted Colors for Dark */
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 15% 68%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Accent - Warm Orange for Dark */
+    --accent: 25 95% 48%;
+    --accent-foreground: 215 25% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status Colors for Dark */
+    --success: 142 69% 48%;
+    --success-foreground: 215 25% 8%;
+    --warning: 45 93% 48%;
+    --warning-foreground: 215 25% 8%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 210 16% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Interactive Elements for Dark */
+    --border: 215 25% 22%;
+    --input: 215 25% 15%;
+    --ring: 186 64% 55%;
+
+    /* Updated Sidebar for Medical Theme */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
