@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { DatabaseTest } from '@/components/DatabaseTest';
 import {
   Heart,
   Video,
@@ -301,6 +302,11 @@ export const Dashboard = ({ onViewChange, isOnline }: DashboardProps) => {
             </CardContent>
           </Card>
         </div>
+      </div>
+
+      {/* Database Connection Test */}
+      <div className="flex justify-center">
+        <DatabaseTest />
       </div>
 
       {/* Network Status Banner */}
